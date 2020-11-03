@@ -1,0 +1,46 @@
+.header {
+    background-color: #ffffff;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.img-logo {
+    width: 40px;
+}
+
+.Nombre {
+    font-size: 40px;
+    color: aquamarine;
+}
+
+.btncolor {
+    color: rgba(255, 0, 0, 1);
+}
+
+.header::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 10px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.vh-50 {
+    height: 90vmin;
+}
+
+.imgyo {
+    width: 450px;
+}
+
+.barra {
+    background-color: rgba(52, 144, 240, 0.7);
+}
+
+.foter {
+    background-color: #3490F0;
+}
