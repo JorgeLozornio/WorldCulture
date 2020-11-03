@@ -1,98 +1,125 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Trip trip</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
-    <link rel="stylesheet" href="css/main.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/stylenavbar.css">
+    <title>Responsive Navbar</title>
 </head>
 
 <body>
+    <header>
+        <div class="container">
+            <input type="checkbox" name="" id="check">
 
-    <header class="header">
+            <div class="logo-container">
+                <h3 class="logo">World<span>Culture</span></h3>
+            </div>
 
-        <div class="container vh-50 ">
+            <div class="nav-btn">
+                <div class="nav-links">
+                    <ul>
+                        <li class="nav-link" style="--i: .6s">
+                            <a href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-link" style="--i: .85s">
+                            <a href="#">Departamentos<i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown">
+                                <ul>
+                                    <li class="dropdown-link">
+                                        <a href="#">Ropa<i class="fas fa-caret-down"></i></a>
+                                        <div class="dropdown second">
+                                            <ul>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Dama</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Caballero</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Niño</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Niña</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Ver todo</a>
+                                                </li>
 
-            <!--NavBar-->
-            <nav class="barra row text-white justify-content-center align-items-center text-uppercase pt-2">
-                <!--ArpaLogo-->
-                <div class="container justify-content-md-start">
-                    <a href="#" class="col-auto text-reset">
-                        <!-- <img src="./img/logo-white.svg" alt="Logo Weston" class="img-logo" />  -->
-                        WorldCulture
-                    </a>
+                                                <div class="arrow"></div>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="dropdown-link">
+                                        <a href="#">Calzado<i class="fas fa-caret-down"></i></a>
+                                        <div class="dropdown second">
+                                            <ul>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 1</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 2</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">Link 3</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="#">More<i class="fas fa-caret-down"></i></a>
+                                                    <div class="dropdown second">
+                                                        <ul>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 1</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 2</a>
+                                                            </li>
+                                                            <li class="dropdown-link">
+                                                                <a href="#">Link 3</a>
+                                                            </li>
+                                                            <div class="arrow"></div>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <div class="arrow"></div>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <div class="arrow"></div>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-link" style="--i: 1.35s">
+                            <a href="#">Contacto</a>
+                        </li>
+                        <li class="nav-link" style="--i: 1.35s">
+                            <a href="#">Mis pedidos</a>
+                        </li>
+
+                    </ul>
                 </div>
-                <!--Menu-->
-                <div class="col-auto">
-                    <a href="#" class="text-reset pr-3">Inicio</a>
-                    <a href="#" class="text-reset pr-3">Departamamentos</a>
-                    <a href="Login/Login.html" class="text-reset pr-3">Iniciar sesión</a>
 
+                <div class="log-sign" style="--i: 1.8s">
+                    <a href="Login/Login.html" class="btn transparent">Log in</a>
+                    <a href="Login/Login.html" class="btn solid">Sign up</a>
                 </div>
+            </div>
 
-            </nav>
-            <!--Yo-->
-            <div class="row h-100 align-items-center">
-                <a href="#" class="col-6 text-white">
-                    <img src="img/fondo.jpg" alt="" class="imgyo" />
-                </a>
-                <div class="col-6 text-white">
-                    <!--Titulo-->
-                    <h1><span class="Nombre"> Developer</span></h1>
-                    <!--Texto-->
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores aperiam neque temporibus ipsam non atque repellat optio quas! Quod mollitia quam impedit!
-                    </p>
-                    <!--Boton-->
-                    <div class="col text-center">
-                        <a href="#" class="text-reset btn btn-danger ">See more</a>
-                    </div>
+            <div class="hamburger-menu-container">
+                <div class="hamburger-menu">
+                    <div></div>
                 </div>
             </div>
         </div>
-
-        <!-- <img src="./img/cuts/cut-header.svg" /> -->
-
     </header>
-
-    <!--Footer-->
-    <footer class="foter text-white">
-        <div class="container">
-            <nav class="row justify-content-center">
-                <!--RedesSociales-->
-                <ul class="col-3 list-unstyled  ">
-
-                    <li class="text-uppercase">Contact</li>
-                    <li class="d-flex justify-content-between">
-                        <!--Email-->
-
-                        <!--Telefono-->
-                        <a href="#" class="text-reset">
-
-                            <i class="fas fa-phone"></i>
-
-                        </a>
-                        <!--Instagram-->
-                        <a href="#" class="text-reset">
-
-                            <li class="fab fa-instagram"></li>
-
-                        </a>
-                        <!--LinkedIn -->
-                        <!--Youtube-->
-                    </li>
-
-                </ul>
-
-            </nav>
-        </div>
-    </footer>
-    <script src="JS/jquery-3.5.0.min.js"></script>
-    <script src="JS/popper.min.js"></script>
-    <script src="JS/bootstrap.min.js"></script>
+    <main>
+        <section>
+            <div class="overlay"></div>
+        </section>
+    </main>
 </body>
 
 </html>
