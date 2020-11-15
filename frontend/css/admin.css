@@ -1,0 +1,13 @@
+body {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    width: 800px;
+    margin-left: 400px;
+}
