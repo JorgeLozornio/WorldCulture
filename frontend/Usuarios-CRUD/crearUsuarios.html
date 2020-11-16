@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Registrar Usuarios</title>
+</head>
+
+<body>
+
+    <form action="#" >
+        <h2 class="title">Registrar Usuario</h2>
+        <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Nombre" id="nombre"/>
+        </div>
+        <div class="input-field">
+            <i class=""></i>
+            <input type="text" placeholder="Apellido" id="apellidos"/>
+        </div>
+        <div class="input-field">
+            <i class="fas fa-phone"></i>
+            <input type="text" placeholder="Telefono" id="telefono"/>
+        </div>
+        <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Email" id="email"/>
+        </div>
+        <div class="input-field">
+            <i class="fas fa-calendar"></i>
+            <input type="date" placeholder="Fecha de Nacimiento" id="fechaNacimiento"/>
+        </div>
+        <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Contraseña" id="contrasena"/>
+        </div>
+        <input type="submit" class="btn" id="btnGuardar" value="Continuar" />
+    </form>
+
+    <div >
+        <h2>Usuarios</h2>
+        <table  style="width:100%" id="tblUsuarios">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
+                    <th>FechaNacimiento</th>
+                    <th>Contraseña</th>
+                    <th>Tipo</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    
+    <script src="../JS/usuarios.js"></script>    
+    <script src="../JS/tablaUsuarios.js"></script>
+</body>
+
+</html>
