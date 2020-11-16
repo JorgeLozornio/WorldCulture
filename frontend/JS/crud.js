@@ -99,13 +99,29 @@ function onDelete(td) {
 
 function validate() {
     isValid = true;
-    if (document.getElementById("imagen").value == "") {
+    if (document.getElementById("imagen").value == "" || document.getElementById("codigo").value == "" || document.getElementById("nombre").value == "" || document.getElementById("descripcion").value == "" || document.getElementById("departamento").value == "" || document.getElementById("seccion").value == "" || document.getElementById("compra").value == "" || document.getElementById("venta").value == "" || document.getElementById("stock").value == "") {
         isValid = false;
         document.getElementById("imagenValidationError").classList.remove("hide");
+        document.getElementById("codigoValidationError").classList.remove("hide");
+        document.getElementById("nombreValidationError").classList.remove("hide");
+        document.getElementById("descripcionValidationError").classList.remove("hide");
+        document.getElementById("departamentoValidationError").classList.remove("hide");
+        document.getElementById("seccionValidationError").classList.remove("hide");
+        document.getElementById("compraValidationError").classList.remove("hide");
+        document.getElementById("ventaValidationError").classList.remove("hide");
+        document.getElementById("stockValidationError").classList.remove("hide");
     } else {
         isValid = true;
         if (!document.getElementById("imagenValidationError").classList.contains("hide"))
-            document.getElementById("imagenValidationError").classList.add("hide");
+            document.getElementById("imagenValidationError").classList.add("hide" || !document.getElementById("codigoValidationError").classList.contains("hide"))
+        document.getElementById("codigoValidationError").classList.add("hide" || !document.getElementById("nombreValidationError").classList.contains("hide"))
+        document.getElementById("nombreValidationError").classList.add("hide" || !document.getElementById("descripcionValidationError").classList.contains("hide"))
+        document.getElementById("descripcionValidationError").classList.add("hide" || !document.getElementById("departamentoValidationError").classList.contains("hide"))
+        document.getElementById("departamentoValidationError").classList.add("hide" || !document.getElementById("seccionValidationError").classList.contains("hide"))
+        document.getElementById("seccionValidationError").classList.add("hide" || !document.getElementById("compraValidationError").classList.contains("hide"))
+        document.getElementById("compraValidationError").classList.add("hide" || !document.getElementById("ventaValidationError").classList.contains("hide"))
+        document.getElementById("ventaValidationError").classList.add("hide" || !document.getElementById("stockValidationError").classList.contains("hide"))
+        document.getElementById("stockValidationError").classList.add("hide");
     }
     return isValid;
 }
