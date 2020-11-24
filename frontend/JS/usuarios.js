@@ -75,30 +75,33 @@ document.querySelector('#btnBuscar').addEventListener('click', buscarUsuario);
 
 function guardarUsuario(){
 
-    idU++;
+    if(validarVacio() == true && validarTel() == true){
+        idU++;
 
-    var idUsuario = idU,
-        nombre = document.querySelector('#nombre').value,
-        apellidos = document.querySelector('#apellidos').value,
-        email = document.querySelector('#email').value,
-        telefono = document.querySelector('#telefono').value,
-        fechaNacimiento = document.querySelector('#fechaNacimiento').value,
-        contraseña = document.querySelector('#contrasena').value,
-        tipo = document.querySelector('#tipo').value,
-        estado = document.querySelector('#estado').value;
+        var idUsuario = idU,
+            nombre = document.querySelector('#nombre').value,
+            apellidos = document.querySelector('#apellidos').value,
+            email = document.querySelector('#email').value,
+            telefono = document.querySelector('#telefono').value,
+            fechaNacimiento = document.querySelector('#fechaNacimiento').value,
+            contraseña = document.querySelector('#contrasena').value,
+            tipo = document.querySelector('#tipo').value,
+            estado = document.querySelector('#estado').value;
 
-    añadirUsuario(
-        idUsuario, 
-        nombre, 
-        apellidos, 
-        email,
-        telefono, 
-        fechaNacimiento, 
-        contraseña,
-        tipo,
-        estado);
+        añadirUsuario(
+            idUsuario, 
+            nombre, 
+            apellidos, 
+            email,
+            telefono, 
+            fechaNacimiento, 
+            contraseña,
+            tipo,
+            estado);
 
-    generarTabla();
+        generarTabla();
+    }
+
 }
 
 function guardarEdit(){
@@ -244,4 +247,28 @@ function tablaBusqueda(i){
         
         tbody.appendChild(row);
     
+}
+
+function validarVacio(){
+    if(document.querySelector('#nombre').value == "" ||
+        document.querySelector('#apellidos').value == "" ||
+        document.querySelector('#telefono').value == "" ||
+        document.querySelector('#email').value == "" ||
+        document.querySelector('#fechaNacimiento').value == "" ||
+        document.querySelector('#contrasena').value == "" ||
+        document.querySelector('#tipo').value == "" ||
+        document.querySelector('#estado').value == ""
+        ){
+            alert("Tienes que llenar todos los campos");
+        }else{
+            return true;
+        }
+}
+
+function validarTel(){
+    if(document.querySelector("#telefono").value.length == 10){
+        return true;
+    }else{
+        alert("El numero de telefono tiene que tener 10 digitos")
+    }
 }
