@@ -42,10 +42,10 @@
                 </form>
 
                 <form action="#" class="sign-up-form">
-                    <label>Hola!!</label> <label class="validation-error hide" id="camposValidationError"> Llenar
-                            todos
-                            los campos, por favor</label>
+
                     <h2 class="title">Regístrate</h2>
+
+                    <div id="error"></div>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
                         <input type="text" placeholder="Nombre" name="nombre" id="nombre" required />
@@ -56,7 +56,7 @@
                     </div>
                     <div class="input-field">
                         <i class="fas fa-phone"></i>
-                        <input type="text" placeholder="Telefono" id="telefono" required/>
+                        <input type="text" placeholder="Telefono" id="telefono" required />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
@@ -64,13 +64,13 @@
                     </div>
                     <div class="input-field">
                         <i class="fas fa-calendar"></i>
-                        <input type="date" placeholder="Fecha de Nacimiento" id="fechaNacimiento" required/>
+                        <input type="date" placeholder="Fecha de Nacimiento" id="fechaNacimiento" required />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Contraseña" id="contrasena" required/>
+                        <input type="password" placeholder="Contraseña" id="contrasena" required />
                     </div>
-                    <input type="submit" class="btn" id="btnGuardar" onclick=' return enviarDatos();' value="Continuar" required/>
+                    <input type="submit" class="btn" id="btnGuardar" onclick=' return enviarDatos();' value="Continuar" required />
                     <p class="social-text">Iniciar sesión con una red social</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">
@@ -87,6 +87,7 @@
                         </a>
                     </div>
                 </form>
+
 
             </div>
         </div>
