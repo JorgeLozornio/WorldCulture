@@ -20,7 +20,7 @@ function enviarDatos() {
         errores.push('Ingresa tu nombre');
     }
 
-    if (nombre.value.length > 10) {
+    if (nombre.value.length > 50) {
 
         errores.push('Ingresa un Nombre con un maximo de 50 caracteres');
     }
@@ -29,6 +29,12 @@ function enviarDatos() {
 
         errores.push('Ingresa tus apellidos');
     }
+
+    if (apellidos.value.length > 50) {
+
+        errores.push('Ingresa un Nombre con un maximo de 50 caracteres');
+    }
+
 
     if (telefono.value === null || telefono.value === '') {
 
