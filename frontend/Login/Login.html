@@ -40,33 +40,37 @@
                         </a>
                     </div>
                 </form>
+
                 <form action="#" class="sign-up-form">
+
                     <h2 class="title">Regístrate</h2>
+
+                    <div id="error"></div>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Nombre" id="nombre"/>
+                        <input type="text" placeholder="Nombre" name="nombre" id="nombre" maxlength="50" required />
                     </div>
                     <div class="input-field">
                         <i class=""></i>
-                        <input type="text" placeholder="Apellido" id="apellidos"/>
+                        <input type="text" placeholder="Apellido" id="apellidos" maxlength="50" required />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-phone"></i>
-                        <input type="text" placeholder="Telefono" id="telefono"/>
+                        <input type="text" onkeypress="if (isNaN(String.fromCharCode(event.keyCode))) return false;" placeholder="Telefono" id="telefono" maxlength="10" required />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Email" id="email"/>
+                        <input type="email" placeholder="Email" id="email" required />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-calendar"></i>
-                        <input type="date" placeholder="Fecha de Nacimiento" id="fechaNacimiento"/>
+                        <input type="date" placeholder="Fecha de Nacimiento" id="fechaNacimiento" required />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Contraseña" id="contrasena"/>
+                        <input type="password" placeholder="Contraseña" id="contrasena" maxlength="20" required />
                     </div>
-                    <input type="submit" class="btn" id="btnGuardar" value="Continuar" />
+                    <input type="submit" class="btn" id="btnGuardar" onclick=' return enviarDatos();' value="Continuar" required />
                     <p class="social-text">Iniciar sesión con una red social</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">
@@ -83,6 +87,8 @@
                         </a>
                     </div>
                 </form>
+
+
             </div>
         </div>
 
@@ -94,8 +100,8 @@
                         ¡Que esperas!
                     </p>
                     <button class="btn transparent" id="sign-up-btn">
-            Registrate
-            </button>
+                        Registrate
+                    </button>
                 </div>
                 <img src="../img/worldculturee.png" class="image" alt="" />
             </div>
@@ -106,8 +112,8 @@
                         ¡Te esperamos con nuevas ofertas!
                     </p>
                     <button class="btn transparent" id="sign-in-btn">
-            Iniciar Sesión
-          </button>
+                        Iniciar Sesión
+                    </button>
                 </div>
                 <img src="../img/worldculturee.png" class="image" alt="" />
             </div>
@@ -115,7 +121,8 @@
     </div>
 
     <script src="../JS/app.js"></script>
-    <script src="../JS/usuarios.js"></script>
+    <script src="../JS/login.js"></script>
+    <script></script>
 </body>
 
 </html>
