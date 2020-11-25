@@ -33,7 +33,7 @@ function enviarDatos() {
 
     if (apellidos.value.length > 50) {
 
-        errores.push('Ingresa un Nombre con un maximo de 50 caracteres');
+        errores.push('Ingresa un Apellido con un maximo de 50 caracteres');
     }
 
 
@@ -47,16 +47,16 @@ function enviarDatos() {
         errores.push('El numero de telefono debe contener 10 digitos');
     }
 
-
     if (email.value === null || email.value === '') {
 
         errores.push('Ingresa tu email');
     }
 
-    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(email)) {
-        alert("La dirección de email " + email + " es correcta.");
+    if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(email)) {
+
+
     } else {
-        errores.push('el correo esta mal we');
+
     }
 
     if (fechaNacimiento.value === null || fechaNacimiento.value === '') {
@@ -67,6 +67,10 @@ function enviarDatos() {
     if (contrasena.value === null || contrasena.value === '') {
 
         errores.push('Ingresa tu contrasena');
+    }
+
+    if (contrasena.value.length > 20) {
+        errores.push('la contrasena debe tener maximo 20 caracteres');
     }
 
     error.innerHTML = errores.join(', ');
