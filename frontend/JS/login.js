@@ -6,6 +6,8 @@ var fechaNacimiento = document.getElementById('fechaNacimiento');
 var contrasena = document.getElementById('contrasena');
 var error = document.getElementById('error');
 
+
+
 error.style.color = 'red';
 error.style.marginLeft = '15px';
 error.style.fontSize = '20px';
@@ -45,7 +47,6 @@ function enviarDatos() {
 
         errores.push('El numero de telefono debe contener 10 digitos');
     }
-
 
     if (email.value === null || email.value === '') {
 
