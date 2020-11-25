@@ -48,15 +48,15 @@
                     <div id="error"></div>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Nombre" name="nombre" id="nombre" required />
+                        <input type="text" placeholder="Nombre" name="nombre" id="nombre" maxlength="50" required />
                     </div>
                     <div class="input-field">
                         <i class=""></i>
-                        <input type="text" placeholder="Apellido" id="apellidos" required />
+                        <input type="text" placeholder="Apellido" id="apellidos" maxlength="50" required />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-phone"></i>
-                        <input type="text" onkeypress="if (isNaN(String.fromCharCode(event.keyCode))) return false;" placeholder="Telefono" id="telefono" required />
+                        <input type="text" onkeypress="if (isNaN(String.fromCharCode(event.keyCode))) return false;" placeholder="Telefono" id="telefono" maxlength="10" required />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
@@ -68,7 +68,7 @@
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Contraseña" id="contrasena" required />
+                        <input type="password" placeholder="Contraseña" id="contrasena" maxlength="20" required />
                     </div>
                     <input type="submit" class="btn" id="btnGuardar" onclick=' return enviarDatos();' value="Continuar" required />
                     <p class="social-text">Iniciar sesión con una red social</p>

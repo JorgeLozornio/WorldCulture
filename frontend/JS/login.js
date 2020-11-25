@@ -6,8 +6,7 @@ var fechaNacimiento = document.getElementById('fechaNacimiento');
 var contrasena = document.getElementById('contrasena');
 var error = document.getElementById('error');
 
-
-
+var numero = /[0-9]/i;
 error.style.color = 'red';
 error.style.marginLeft = '15px';
 error.style.fontSize = '20px';
@@ -48,9 +47,16 @@ function enviarDatos() {
         errores.push('El numero de telefono debe contener 10 digitos');
     }
 
+
     if (email.value === null || email.value === '') {
 
         errores.push('Ingresa tu email');
+    }
+
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/.test(email)) {
+        alert("La dirección de email " + email + " es correcta.");
+    } else {
+        errores.push('el correo esta mal we');
     }
 
     if (fechaNacimiento.value === null || fechaNacimiento.value === '') {
