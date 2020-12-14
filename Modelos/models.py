@@ -3,8 +3,10 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Integer,String,Column,ForeignKey
 from sqlalchemy.orm import relationship
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_marshmallow import Marshmallow
 
 db = SQLAlchemy()
+ma = Marshmallow()
 
 class Usuario(UserMixin,db.Model):
     __tablename__='Usuarioss'
@@ -16,14 +18,6 @@ class Usuario(UserMixin,db.Model):
     contrasena = Column(String(128), nullable=False)
     tipo = Column(String(1), nullable=False)
     estatus = Column(String(1), nullable=False)
-    @property
-    def password(self):
-        raise AttributeError('El atributo password no es un atributo de lectura')
-    @password.setter
-    def password(self,password):
-        self.password_hash=generate_password_hash(password)
-    def validarPassword(self,password):
-        return check_password_hash(self.password_hash,password)
 
     def __init__(self, nombre, apellido, email, telefono, contrasena, tipo, estatus):
         self.nombre = nombre
@@ -33,3 +27,13 @@ class Usuario(UserMixin,db.Model):
         self.contrasena = contrasena
         self.tipo = tipo
         self.estatus = estatus
+
+    def insertar(self):
+        db.session.add(self)
+        db.session.commit()
+
+class UsuarioSchema(ma.Schema):
+    class Meta:
+        fields = ('idUsuario', 'nombre', 'apellido', 'email', 'telefono', 'contrasena', 'tipo', 'estado')
+
+usuario_schema = UsuarioSchema()

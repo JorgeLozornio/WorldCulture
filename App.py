@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request,abort,redirect,url_for
+from flask import flash, Flask,render_template,request,abort,redirect,url_for
 from flask_login import UserMixin,LoginManager, current_user, login_user, logout_user, login_required
 # from Modelos.models import db, Usuario
 from flask_mysqldb import MySQL
@@ -11,31 +11,32 @@ from flask_marshmallow import Marshmallow
 app = Flask(__name__)
 
 #Conexión con sqlalchemy
-app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:pgcontrol@localhost/worldculture'
-app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
+# app.config['SQLALCHEMY_DATABASE_URI']='mysql+pymysql://root:pgcontrol@localhost/worldculture'
+# app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 
-db = SQLAlchemy(app)
-ma = Marshmallow(app)
+# db = SQLAlchemy()
+# ma = Marshmallow(app)
 
-login_manager = LoginManager()
-login_manager.init_app(app)
+# login_manager = LoginManager()
+# login_manager.init_app(app)
 
 
 
 #Conexion MySQL
-# app.config['MYSQL_HOST'] = 'localhost'
-# app.config['MYSQL_USER'] = 'root'
-# app.config['MYSQL_DB'] = 'worldculture'
-# mysql = MySQL(app)
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = 'pgcontrol'
+app.config['MYSQL_DB'] = 'worldculture'
+mysql = MySQL(app)
 
 #Configuracion
 app.secret_key = 'mysecretkey'
 
 #Login
-@login_manager.user_loader
-def load_user(id):
-    return Usuario.query.get(int(id))
+# @login_manager.user_loader
+# def load_user(id):
+#     return Usuario.query.get(int(id))
 
 # @app.route('/login',methods=['POST'])
 # def login():
@@ -54,51 +55,50 @@ def home():
     return 'The current user'
 
 #Usuarios
-class Usuario(UserMixin, db.Model):
-    __tablename__='Usuarioss'
-    idUsuario=Column(Integer,primary_key=True)
-    nombre=Column(String(50),nullable=False)
-    apellido=Column(String(50),nullable=False)
-    email =Column(String(50),nullable=False)
-    telefono = Column(String(10), nullable=False)
-    contrasena = Column(String(128), nullable=False)
-    tipo = Column(String(1), nullable=False)
-    estatus = Column(String(1), nullable=False)
+# class Usuario(UserMixin, db.Model):
+#     __tablename__='Usuarioss'
+#     idUsuario=db.Column(db.Integer,primary_key=True)
+#     nombre=db.Column(db.String(50),nullable=False)
+#     apellido=db.Column(db.String(50),nullable=False)
+#     email =db.Column(db.String(50),nullable=False)
+#     telefono = db.Column(db.String(10), nullable=False)
+#     contrasena = db.Column(db.String(128), nullable=False)
+#     tipo = db.Column(db.String(1), nullable=False)
+#     estatus = db.Column(db.String(1), nullable=False)
 
-    def __init__(self, nombre, apellido, email, telefono, contrasena, tipo, estatus):
-        self.nombre = nombre
-        self.apellido = apellido
-        self.email = email
-        self.telefono = telefono
-        self.contrasena = contrasena
-        self.tipo = tipo
-        self.estatus = estatus
+#     def __init__(self, nombre, apellido, email, telefono, contrasena, tipo, estatus):
+#         self.nombre = nombre
+#         self.apellido = apellido
+#         self.email = email
+#         self.telefono = telefono
+#         self.contrasena = contrasena
+#         self.tipo = tipo
+#         self.estatus = estatus
 
-class UsuarioSchema(ma.Schema):
-    class Meta:
-        fields = ('idUsuario', 'nombre', 'apellido', 'email', 'telefono', 'contrasena', 'tipo', 'estado')
+# class UsuarioSchema(ma.Schema):
+#     class Meta:
+#         fields = ('idUsuario', 'nombre', 'apellido', 'email', 'telefono', 'contrasena', 'tipo', 'estado')
 
-usuario_schema = UsuarioSchema()
+# usuario_schema = UsuarioSchema()
 
 @app.route('/crearUsuario', methods=['POST'])
 def crearUsuario():
-    
-    idUsuario = request.json['idUsuario']
-    nombre = request.json['nombre']
-    apellido = request.json['apellido']
-    email = request.json['email']
-    telefono = request.json['telefono']
-    contrasena = request.json['contrasena']
-    tipo = request.json['tipo']
-    estado = request.json['estado']
+    if request.method == 'POST':
+        idusuario = request.json['idusuario']
+        nombre = request.json['nombre']
+        apellido = request.json['apellido']
+        email = request.json['email']
+        telefono = request.json ['telefono']
+        contrasena = request.json['contrasena']
+        tipo = request.json['tipo']
+        estado = request.json['estado']
+        cur = mysql.connection.cursor()
+        cur.execute('INSERT INTO usuarios (idusuario, nombre, apellido, email, telefono, contrasena, tipo, estado) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)',
+        (idusuario, nombre, apellido, email, telefono, contrasena, tipo, estado))
 
-    print(request.json)
-
-    nuevoUsuario = UsuarioSchema(idUsuario, nombre, apellido, email, telefono, contrasena, tipo, estado)
-    db.session.add(nuevoUsuario)
-    db.session.commit()
-
-    return UsuarioSchema.jsonify(nuevoUsuario)
+        mysql.connection.commit()
+        flash('Usuario Creado')
+        return redirect(url_for('crearUsuario'))
 
 @app.route('/')
 def Productos():
