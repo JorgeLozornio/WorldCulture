@@ -55,31 +55,6 @@ def home():
     return 'The current user'
 
 #Usuarios
-# class Usuario(UserMixin, db.Model):
-#     __tablename__='Usuarioss'
-#     idUsuario=db.Column(db.Integer,primary_key=True)
-#     nombre=db.Column(db.String(50),nullable=False)
-#     apellido=db.Column(db.String(50),nullable=False)
-#     email =db.Column(db.String(50),nullable=False)
-#     telefono = db.Column(db.String(10), nullable=False)
-#     contrasena = db.Column(db.String(128), nullable=False)
-#     tipo = db.Column(db.String(1), nullable=False)
-#     estatus = db.Column(db.String(1), nullable=False)
-
-#     def __init__(self, nombre, apellido, email, telefono, contrasena, tipo, estatus):
-#         self.nombre = nombre
-#         self.apellido = apellido
-#         self.email = email
-#         self.telefono = telefono
-#         self.contrasena = contrasena
-#         self.tipo = tipo
-#         self.estatus = estatus
-
-# class UsuarioSchema(ma.Schema):
-#     class Meta:
-#         fields = ('idUsuario', 'nombre', 'apellido', 'email', 'telefono', 'contrasena', 'tipo', 'estado')
-
-# usuario_schema = UsuarioSchema()
 
 @app.route('/crearUsuario', methods=['POST'])
 def crearUsuario():
