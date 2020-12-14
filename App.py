@@ -44,13 +44,50 @@ def add_productos():
         return redirect(url_for('Productos'))
 
 
-@app.route('/edit_productos')
-def edit_productos():
-    return 'Editar productos'
+@app.route('/Edit_productos/<Codigo>')
+def get_productos(Codigo):
+    cur = mysql.connection.cursor()
+    cur.execute('SELECT * FROM productos WHERE Codigo = %s', (Codigo))
+    data = cur.fetchall()
+    return render_template('EditarProductos.html', productos = data[0] )
 
-@app.route('/Delete_productos')
-def delete_productos():
-    return 'Eliminar productos'
+@app.route('/update/<Codigo>', methods=['POST'])
+def update_contact(Codigo):
+    if request.method == 'POST':
+        codigo = request.form['Codigo']
+        nombre = request.form['Nombre']
+        descripcion = request.form['Descripcion']
+        departamento = request.form['Departamento']
+        seccion = request.form ['Seccion']
+        preciocompra = request.form['PrecioCompra']
+        precioventa = request.form['PrecioVenta']
+        stock = request.form['Stock']
+        imagen = request.form['Imagen']
+        cur = mysql.connection.cursor()
+        cur.execute("""
+            UPDATE productos
+            SET 
+                Nombre = %s,
+                Descripcion= %s,
+                Departamento = %s,
+                Seccion = %s,
+                PrecioCompra = %s,
+                PrecioVenta = %s,
+                Stock = %s,
+                Imagen = %s
+            WHERE Codigo = %s
+        """, (codigo, nombre, descripcion, departamento, seccion, preciocompra, precioventa, stock, imagen))
+        flash('Producto editado de manera correcta')
+        mysql.connection.commit()
+        return redirect(url_for('Productos'))
+
+@app.route('/Delete_productos/<string:Codigo>')
+def delete_productos(Codigo):
+    cur = mysql.connection.cursor()
+    cur.execute('DELETE FROM productos WHERE Codigo = {0}'.format(Codigo))
+    mysql.connection.commit()
+    flash('Producto eliminado de manera correcta')
+    return redirect(url_for('Productos'))
 
 if __name__ == '__main__':
     app.run(port = 3000, debug = True)
