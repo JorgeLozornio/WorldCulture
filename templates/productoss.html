@@ -1,0 +1,52 @@
+{% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+<p>{{ message }}</p> {% endfor %} {% endif %} {% endwith %}
+<form action="/add_productos" method="POST">
+
+    <input type="text" name="Codigo" placeholder="Codigo">
+    <input type="text" name="Nombre" placeholder="Nombre">
+    <input type="text" name="Descripcion" placeholder="Descripcion">
+    <input type="text" name="Departamento" placeholder="Departamento">
+    <input type="text" name="Seccion" placeholder="Seccion">
+    <input type="text" name="PrecioCompra" placeholder="Precio de compra">
+    <input type="text" name="PrecioVenta" placeholder="Precio de venta">
+    <input type="text" name="Stock" placeholder="Stock">
+    <input type="text" name="Imagen" placeholder="Imagen">
+    <button type="submit">Guardar</button>
+
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <td>Codigo</td>
+            <td>Nombre</td>
+            <td>Descripcion</td>
+            <td>Departamento</td>
+            <td>Seccion</td>
+            <td>Precio de compra</td>
+            <td>Precio de venta</td>
+            <td>Stock</td>
+            <td>imagen</td>
+            <td>Operaciones</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for productos in productos%}
+        <tr>
+            <td>{{ productos.0 }}</td>
+            <td>{{ productos.1 }}</td>
+            <td>{{ productos.2 }}</td>
+            <td>{{ productos.3 }}</td>
+            <td>{{ productos.4 }}</td>
+            <td>{{ productos.5 }}</td>
+            <td>{{ productos.6 }}</td>
+            <td>{{ productos.7 }}</td>
+            <td>{{ productos.8 }}</td>
+            <td>
+                <a href="/Editar">Editar</a>
+                <a href="/Borrar">Borrar</a>
+            </td>
+        </tr>
+        {% endfor%}
+    </tbody>
+</table>
